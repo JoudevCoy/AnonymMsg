@@ -1,0 +1,45 @@
+@font-face {
+  font-family: OpenSans;
+  src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+:root {
+  --pm-color: #ff3335;
+  --sc-color: #ff9733;
+  --accent-color: #fd33ff;
+  --accent1-color: #ff339b;
+  --text-light-color: #faffff;
+  --text-dark-color: #122230;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, var(--accent1-color), var(--pm-color), var(--sc-color));
+  background-size: 150% 150%;
+  background-position: 0% 0%;
+  animation: gradient 5s ease-in-out infinite alternate-reverse;
+  color: var(--text-light-color);
+}
+@keyframes gradient {
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes show-alert {
+  from, to {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  30%, 70% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Nav */
+nav .container .left-part,
+nav .container .right-part {
+  width: 10%;
+}
