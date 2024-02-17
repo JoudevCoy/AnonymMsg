@@ -33,10 +33,10 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://ngl.glitch.me/?text="+textInput.value.replace(/\g/n, "\n");
+    url = "https://ngl.glitch.me/?text="+textInput.value.replace(/\n/g, "\n");
 
   window.location.href = url;
-  console.log(JSON.stringify(msg));
+  // console.log(JSON.stringify(msg));
   /* await fetch(url, {
     method: "POST",
   })
