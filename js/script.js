@@ -1,3 +1,4 @@
+alert("1");
 // Text input variable
 const textInput = document.getElementById('text-input'),
   textCounter = document.getElementById('text-counter'),
@@ -33,12 +34,16 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://ngl.glitch.me/?text="+textInput.value.replace(/\n/g, "\n");
+    url = "https://ngl.glitch.me/?text="; //+textInput.value.replace(/\n/g, "\n");
   textInput.value = "";
-  window.location.href = url;
+  // window.location.href = url;
   // console.log(JSON.stringify(msg));
-  /* await fetch(url, {
+  await fetch(url, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(msg);
   })
     .then(response => response.json())
     .then(data => {
@@ -48,7 +53,7 @@ const sendMsg = async () => {
     .catch(error => {
       showAlert('Error sending data to server: ' + error);
       textInput.value = "";
-    });*/
+    });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
