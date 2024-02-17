@@ -33,11 +33,11 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://curved-brick-kettle.glitch.me/?text"+textInput.value;
+    url = "https://ngl.glitch.me/?text"+textInput.value;
 
   window.location.href = url;
   console.log(JSON.stringify(msg));
-  /* await fetch(url, {
+  await fetch(url, {
     method: "POST",
   })
     .then(response => response.json())
@@ -48,7 +48,7 @@ const sendMsg = async () => {
     .catch(error => {
       showAlert('Error sending data to server: ' + error);
       textInput.value = "";
-    }); */
+    });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
