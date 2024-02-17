@@ -37,7 +37,7 @@ const sendMsg = async () => {
 
   window.location.href = url;
   console.log(JSON.stringify(msg));
-  await fetch(url, {
+  /* await fetch(url, {
     method: "POST",
   })
     .then(response => response.json())
@@ -48,7 +48,7 @@ const sendMsg = async () => {
     .catch(error => {
       showAlert('Error sending data to server: ' + error);
       textInput.value = "";
-    });
+    });*/
 }
 
 window.addEventListener("DOMContentLoaded", () => {
