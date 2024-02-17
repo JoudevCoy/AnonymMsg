@@ -33,15 +33,11 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://curved-brick-kettle.glitch.me/";
+    url = "https://curved-brick-kettle.glitch.me/?text"+textInput.value;
   
   console.log(JSON.stringify(msg));
   await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(msg),
   })
     .then(response => response.json())
     .then(data => {
