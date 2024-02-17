@@ -33,7 +33,7 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://ngl.glitch.me/?text"+textInput.value;
+    url = "https://ngl.glitch.me/?text="+textInput.value;
 
   window.location.href = url;
   console.log(JSON.stringify(msg));
