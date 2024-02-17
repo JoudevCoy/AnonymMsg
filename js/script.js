@@ -1,4 +1,4 @@
-alert("1");
+
 // Text input variable
 const textInput = document.getElementById('text-input'),
   textCounter = document.getElementById('text-counter'),
