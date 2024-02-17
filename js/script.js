@@ -1,3 +1,4 @@
+"use strict";
 
 // Text input variable
 const textInput = document.getElementById('text-input'),
@@ -30,20 +31,29 @@ textInput.addEventListener("input", () => {
   textCounter.innerText = handleTextCounter(textInput, maxText);
 });
 
+const msgBox = document.querySelector(".msg-box");
 const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "https://ngl.glitch.me/?text="; //+textInput.value.replace(/\n/g, "\n");
+    url = "https://ngl.glitch.me/"; // + textInput.value.replace(/\n/g, "\n");
+  
   textInput.value = "";
+  msgBox.innerHTML = `
+  <div class="msg-header bg-text-dark py-3 px-4 flex-items-center justify-center gap-2">
+    <span class="text-[1.3rem] animate-bounce font-open-sans">Terkirim!</span>
+  </div>
+  `;
+  
   // window.location.href = url;
-  // console.log(JSON.stringify(msg));
+  
+  console.log(JSON.stringify(msg));
   await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(msg);
+    body: JSON.stringify(msg),
   })
     .then(response => response.json())
     .then(data => {
@@ -62,4 +72,5 @@ window.addEventListener("DOMContentLoaded", () => {
   textCounter.innerText = textInput.value.length + "/" + maxText;
   
   sendBtn.onclick = sendMsg;
+  
 });
