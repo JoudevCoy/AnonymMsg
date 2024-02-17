@@ -37,7 +37,6 @@ const sendMsg = async () => {
   
   console.log(JSON.stringify(msg));
   await fetch(url, {
-    mode: "cors",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
