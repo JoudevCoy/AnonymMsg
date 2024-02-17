@@ -33,7 +33,7 @@ const sendMsg = async () => {
   if (textInput.value == null || textInput.value.length < 1) return;
   
   let msg = { msg: textInput.value},
-    url = "http://localhost:3000/";
+    url = "https://curved-brick-kettle.glitch.me/";
   
   console.log(JSON.stringify(msg));
   await fetch(url, {
