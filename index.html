@@ -29,6 +29,15 @@
   <title>Kirim Pesan Anonim - Joxx</title>
 </head>
 <body>
+  <div id="preview-overlay" style="display: none; opacity: 0;" class="preview-overlay z-10 fixed w-full h-full bg-[#000000aa] p-4">
+    <div class="relative grid place-items-center w-full h-full">
+      <button onclick="closePreview()" class="w-[35px] aspect-square rounded-[50%] bg-text-light grid place-content-center absolute top-0 right-0">
+        <i class="text-text-dark text-2xl fas fa-xmark"></i>
+      </button>
+      <img id="preview-img" class="max-w-[450px]" src="logo.png"/>
+    </div>
+  </div>
+  
   <nav class="w-full border-b-2 border-text-light">
     <div class="container flex justify-between">
       <div class="left-part flex-items-center">
@@ -46,7 +55,7 @@
   </nav>
   
   <section class="msg-section w-full mt-8">
-    <div class="container">
+    <div class="container flex flex-col">
       <div class="msg-box block mx-auto max-w-[460px] bg-text-light shadow-lg rounded-2xl overflow-hidden relative">
         <div class="msg-header bg-text-dark py-3 px-4 flex-items-center gap-2">
           <img class="profile-picture block w-[35px] aspect-square bg-text-light rounded-[50%]" src="assets/user-large.svg"/>
@@ -57,11 +66,26 @@
           <div class="overlay z-[1] pointer-events-none absolute bottom-0 left-0 h-[20%] w-full bg-gradient-to-b from-transparent from-10% to-text-light to-90%"></div>
         </div>
         <div class="msg-footer py-2 px-4 border-t-2 border-t-text-dark flex-items-center justify-between">
-          <span class="text-[1.15rem] text-text-dark font-open-sans" id="text-counter">0/0</span>
-          <button class="send-btn text-[1rem] font-open-sans py-2 px-5 bg-text-dark rounded-full active:scale-95 transition-transform select-none" id="send-btn">
-            Send
-          </button>
+          <div class="flex-items-center">
+            <span class="text-[1.15rem] text-text-dark font-open-sans" id="text-counter">0/0</span>
+          </div>
+          <div class="flex-items-center">
+            <input class="hidden" id="img-input" type="file" accept="image/png, image/jpeg"/>
+            <div class="btn-group flex items-center gap-1">
+              <label for="img-input" class="block bg-text-dark w-[40px] aspect-square p-0 rounded-[50%] grid place-items-center active:scale-95 transition-transform select-none">
+                <i class="fas fa-image"></i>
+              </label>
+              <button class="send-btn text-[1rem] font-open-sans py-2 px-5 bg-text-dark rounded-full active:scale-95 transition-transform select-none" id="send-btn">
+                Send
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
+      <div id="img-preview" class="mt-6 rounded-2xl w-[170px] aspect-square img-preview bg-[var(--ip-bgColor)]" style="display: none;">
+        <!-- div class="img-loading w-full h-full grid place-items-center">
+          <span class="text-[1rem] font-open-sans text-text-dark">Loading..</span>
+        </div -->
       </div>
     </div>
   </section>
@@ -71,6 +95,7 @@
   </div -->
   
   <script src="js/fa.min.js"></script>
+  <script src="js/anime.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

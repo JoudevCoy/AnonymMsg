@@ -10,6 +10,7 @@
   --accent1-color: #ff339b;
   --text-light-color: #faffff;
   --text-dark-color: #122230;
+  --ip-bgColor: #faffffaa;
 }
 
 body {
@@ -42,4 +43,13 @@ body {
 nav .container .left-part,
 nav .container .right-part {
   width: 10%;
+}
+
+/* Img Preview */
+.img-title > span {
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
