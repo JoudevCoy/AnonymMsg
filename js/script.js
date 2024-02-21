@@ -96,7 +96,7 @@ const sendMsg = async () => {
   
   console.log(formData.get("myFile"), formData.get("myMsg"));
   
-  await fetch("http://localhost:3000/", {
+  await fetch(url, {
     method: "POST",
     body: formData,
   })
